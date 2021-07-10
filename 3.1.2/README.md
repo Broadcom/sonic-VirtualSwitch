@@ -7,7 +7,7 @@ For more information about how to use SONiC-VS please visit : https://www.youtub
 
 For any questions please contact : sonic-info@broadcom.com
 
-Features Supported with SONiC-VS Image:
+# Features Supported with SONiC-VS Image:
 - eBGP / iBGP - (underlay and overlay)
 - MC-LAG
 - OSPF underlay with BGP / EVPN as overlay
@@ -17,44 +17,50 @@ Features Supported with SONiC-VS Image:
 - Multi-VRF (Multi-tenants)
 - BFD
 
-Installation steps on a Linux Server
+# Installation steps on a Linux Server
 
-Note: Ensure the server CPU supports Virtualization technologies
+*Note: Ensure the server CPU supports Virtualization technologies
 like Intel VT-D/X or AMD-V.  Check BIOS settings and enable if
-required.
+required.*
 
-# Install the below packages
+## Install the below packages
 
 sudo apt-get -y install qemu-kvm
+
 sudo apt-get -y install qemu-utils
+
 sudo apt-get -y install bridge-utils
+
 sudo apt-get -y install libvirt-bin
 
 
-# Unzip the image if its compressed
-gunzip sonic-vs.img.gz
+## Unzip the image if its compressed
 
-# Edit sonic-vs.xml file and change the following
+ gunzip sonic-vs.img.gz
 
-<source file='/PATH/TO/sonic-vs.img'/>
-              ^^^^^^^^^^^^^^^^^^^^^
-              Replace the above with the path on your system
+## Edit sonic-vs.xml file and change the following
 
-# Define the VM
-virsh define sonic-vs.xml
+ <source file='/PATH/TO/sonic-vs.img'/>
+             
+ Replace the '/PATH/TO/sonic-vs.img' with the actual path on your system
 
-# Start the VM
-virsh start <vmname>
+## Define the VM
+ virsh define sonic-vs.xml
 
-Note: The <vmname> is as defined in the sonic-vs.xml.
+## Start the VM
+ virsh start *vmname*
+
+*Note: The <vmname> is as defined in the sonic-vs.xml.
 The factory default is specificed as "sonicvs1"
-
+*
 # Connect to the VM
-virsh console <vmname>
+virsh console *vmname*
 
-# Login as admin and use YourPaSsWoRd as the password
+## Login credentials
 
-Frequently Asked Questions:
+Login as admin and use YourPaSsWoRd as the password
+
+# Frequently Asked Questions:
 
 Q. Which platforms are supported with Enterprise SONiC by Broadcom?
 A. Enterprise SONiC is supported on most commonly available ODM platforms, some example includes Edgecore, Quanta, Dell etc.
