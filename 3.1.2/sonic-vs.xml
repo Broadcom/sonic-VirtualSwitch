@@ -22,7 +22,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='writeback'/>
-      <source file='/PATH/TO/sonic-vs.img'/>
+      <source file='/var/lib/libvirt/images/sonic-vs.img'/>
       <target bus='virtio' dev='vda'/>
     </disk>
     <serial type='pty'>
@@ -33,38 +33,6 @@
     </console>
     <interface type='bridge'>
       <source bridge='br0'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP1'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP2'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP3'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP4'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP5'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP6'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP7'/>
-      <model type='virtio'/>
-    </interface>
-    <interface type='ethernet'>
-      <target dev='TAP8'/>
       <model type='virtio'/>
     </interface>
     <controller type='usb' index='0'/>

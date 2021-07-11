@@ -23,42 +23,44 @@ For any questions please contact : sonic-info@broadcom.com
 like Intel VT-D/X or AMD-V.  Check BIOS settings and enable if
 required.*
 
+## Download files
+- Download sonic-vs.img.gz and sonic-vs.xml to a local directory on your server.
+- sudo / root privilages are required for installation.
+
+
 ## Install the below packages
 
-sudo apt-get -y install qemu-kvm
+sudo apt-get -y install qemu-kvm qemu-utils bridge-utils libvirt-bin
 
-sudo apt-get -y install qemu-utils
-
-sudo apt-get -y install bridge-utils
-
-sudo apt-get -y install libvirt-bin
-
+## Create the bridge interface br0 (if it does not exist)
+sudo brctl addbr br0
 
 ## Unzip the image if its compressed
 
- gunzip sonic-vs.img.gz
+sudo gunzip sonic-vs.img.gz
 
-## Edit sonic-vs.xml file and change the following
-
- <source file='/PATH/TO/sonic-vs.img'/>
-             
- Replace the '/PATH/TO/sonic-vs.img' with the actual path on your system
+sudo cp sonic-vs.img /var/lib/libvirt/images
 
 ## Define the VM
- virsh define sonic-vs.xml
+
+sudo virsh define sonic-vs.xml
 
 ## Start the VM
- virsh start *vmname*
+sudo  virsh start *vmname*
 
 *Note: The <vmname> is as defined in the sonic-vs.xml.
 The factory default is specificed as "sonicvs1"
 *
-# Connect to the VM
-virsh console *vmname*
+## Connect to the VM
+sudo virsh console *vmname*
 
 ## Login credentials
 
 Login as admin and use YourPaSsWoRd as the password
+
+## Shutting down the VM
+
+virsh shutdown *vmname*
 
 # Frequently Asked Questions:
 
