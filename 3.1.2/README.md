@@ -24,7 +24,7 @@ like Intel VT-D/X or AMD-V.  Check BIOS settings and enable if
 required.*
 
 ## Download files
-- Download sonic-vs.img.gz and sonic-vs.xml to a local directory on your server.
+- Download sonic-vs-3.1.2.img.gz and sonic-vs.xml to a local directory on your server.
 - sudo / root privilages are required for installation.
 
 
@@ -37,9 +37,9 @@ sudo brctl addbr br0
 
 ## Unzip the image if its compressed
 
-sudo gunzip sonic-vs.img.gz
+sudo gunzip sonic-vs-3.1.2.img.gz
 
-sudo cp sonic-vs.img /var/lib/libvirt/images
+sudo cp sonic-vs-3.1.2.img /var/lib/libvirt/images
 
 ## Define the VM
 
@@ -48,9 +48,9 @@ sudo virsh define sonic-vs.xml
 ## Start the VM
 sudo  virsh start *vmname*
 
-*Note: The <vmname> is as defined in the sonic-vs.xml.
-The factory default is specificed as "sonicvs1"
-*
+Note: The <vmname> is as defined in the sonic-vs.xml.
+The factory default is specificed as "sonicvs312"
+
 ## Connect to the VM
 sudo virsh console *vmname*
 

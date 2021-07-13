@@ -22,7 +22,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='writeback'/>
-      <source file='/var/lib/libvirt/images/sonic-vs.img'/>
+      <source file='/var/lib/libvirt/images/sonic-vs-3.1.2.img'/>
       <target bus='virtio' dev='vda'/>
     </disk>
     <serial type='pty'>
